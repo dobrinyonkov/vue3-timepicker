@@ -1982,9 +1982,10 @@ export default {
   </div>
   <div class="custom-icon" v-if="$slots && $slots.icon"><slot name="icon"></slot></div>
   <div class="time-picker-overlay" v-if="showDropdown" @click="toggleActive" tabindex="-1"></div>
-  <div class="dropdown" v-if="showDropdown" tabindex="-1"
-       :class="[dropdownDirClass]" :style="inputWidthStyle"
-       @mouseup="keepFocusing" @click.stop="">
+  <div class="dropdown" tabindex="-1"
+    :class="[dropdownDirClass]"
+    :style="{...inputWidthStyle, display: showDropdown ? '' : 'none'}"
+    @mouseup="keepFocusing" @click.stop="">
     <div class="select-list" :style="inputWidthStyle" tabindex="-1">
       <!-- Common Keyboard Support: less event listeners -->
       <template v-if="!advancedKeyboard">
